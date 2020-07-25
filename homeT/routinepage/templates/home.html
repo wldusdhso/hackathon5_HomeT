@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>포스트들</h1>
+<a href="{% url 'routinepage:new' %}">글쓰기</a>
+
+{% for routine in page_posts %}
+    <h1><a href="{% url 'routinepage:detail' routine.id %}">제목 : {{routine.title}}</a></h1>
+{%endfor%}
+
+<ul>
+    {%if page_posts.has_previous%}
+        <li><a href="?page={{page_posts.previous_page_number}}">이전</a>
+        </li>
+    {%endif%}
+    {%for i in page_posts.paginator.page_range%}
+        <li><a href="?page={{i}}">{{i}}</a></li>
+    {%endfor%}
+    
+    {%if page_posts.has_next%}
+        <li><a href="?page={{page_posts.next_page_number}}">다음</a>
+        </li>
+    {%endif%}
+</ul>
+
+{% endblock %}

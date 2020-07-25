@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action ="{% url 'routinepage:postupdate' onepost.id%}"method ="post">
+    {% csrf_token %}
+    <label>제목</label>
+    <br>
+    <input type="text" name="title" id="title" value="{{onepost.title}}">
+    <br><br>
+
+    <label>링크1</label>
+    <br>
+    <input type="text" name="url1" id="url1" value="{{onepost.url1}}">
+    <br><br>
+
+    <label>부위1</label>
+    <br>
+    <input type="text" name="part1" id="part1" value="{{onepost.part1}}">
+    <br><br>
+
+    <label>링크2</label>
+    <br>
+    <input type="text" name="url2" id="url2" value="{{onepost.url2}}">
+    <br><br>
+
+    <label>부위2</label>
+    <br>
+    <input type="text" name="part2" id="part2" value="{{onepost.part2}}">
+    <br><br>
+
+    <button type="submit">글쓰기</button>
+</form>
+
+{% endblock %}
