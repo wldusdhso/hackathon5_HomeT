@@ -3,9 +3,16 @@
 {% block content %}
 <form method="POST">
     {% csrf_token %}<br>
-    {{ signin_form.as_table }}
+    <p align="center">
+        {{ signin_form.as_table }}
+    </p>
     
-    <input type="submit" value="submit"><br><br>
-    <a href="{% url 'account:signup' %}">회원가입</a>
+    <br>
+
+    <p align="center">
+        <input type="submit" value="submit"><br><br><br>
+        <a style="color:white;" href="{% url 'account:signup' %}">회원가입</a>
+    </p>
+    
 </form>
 {% endblock %}

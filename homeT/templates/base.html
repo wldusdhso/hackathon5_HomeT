@@ -29,9 +29,8 @@
             <p>hackathon_team5</p>
             <p>
                 <a class="nav-link" href="/">home</a>
-                <a class="nav-link" href="routinepage/">루틴</a>
+                <a class="nav-link" href="/routinepage/">루틴</a>
                 <a class="nav-link" href="videopage/">영상</a>
-                <a class="nav-link" href="#">마이페이지</a>
                 {% if user.is_authenticated %}
                     <a class="nav-link" href="{% url 'account:signout'%}">logout</a>
                 {% else %}
