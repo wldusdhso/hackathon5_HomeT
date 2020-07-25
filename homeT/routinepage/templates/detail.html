@@ -2,9 +2,7 @@
 
 {% block content %}
 
-from 
-
-<h1>제목 : {{onepost.title}}</h1>
+<h1 align="center">제목 : {{onepost.title}}</h1>
 <br>
 <!-- <div id="player"></div>
 <script>
@@ -20,13 +18,15 @@ from
       });
   }
 </script><br> -->
-<iframe width="560", height="315"
-src="{{onepost.url1}}" 
-frameborder="0" 
-allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-allowfullscreen>
-</iframe>
-<p>부위1: {{onepost.part1}}</p>
+<p align="center">
+  <iframe width="560", height="315"
+  src="{{onepost.url1}}" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+  allowfullscreen>
+  </iframe>
+</p>
+<p align="center">부위1: {{onepost.part1}}</p>
 <br><br>
 <!-- <div id="player2"></div>
 <script>
@@ -42,26 +42,33 @@ allowfullscreen>
       });
   }
 </script><br> -->
-<iframe width="560", height="315"
-src="{{onepost.url2}}" 
-frameborder="0" 
-allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-allowfullscreen>
-</iframe> 
-<p>부위2: {{onepost.part2}}</p>
+<p align="center">
+  <iframe width="560", height="315"
+  src="{{onepost.url2}}" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+  allowfullscreen>
+  </iframe> 
+</p>
+<p align="center">부위2: {{onepost.part2}}</p>
 <br><br>
 
-<a href="{% url 'routinepage:home' %}"> 홈으로</a>
-<a href="{% url 'routinepage:postedit' onepost.id%}"> 수정하기</a>
-<a href="{% url 'routinepage:postdelete' onepost.id%}"> 삭제하기</a>
+<p align="center">
+  <a href="{% url 'routinepage:home' %}" style="color: white;"> 홈으로</a>
+  <a href="{% url 'routinepage:postedit' onepost.id%}" style="color: white;"> 수정하기</a>
+  <a href="{% url 'routinepage:postdelete' onepost.id%}" style="color: white;"> 삭제하기</a>
+</p>
+<br><br>
 
-<form action="{%url 'routinepage:commentcreate' onepost.id %}" method ="POST">
+<form align="center" action="{%url 'routinepage:commentcreate' onepost.id %}" method ="POST">
     {% csrf_token %}
     <div>
-        <label for="comment_content">댓글</label><br>
+        <label for="comment_content" style="font-size: 30px;">댓글</label><br><br>
         <input type="text" name="comment_content" id="comment_content">
+        &nbsp;&nbsp;&nbsp;
+        <button type="submit">댓글쓰기</button>
     </div>
-    <button type="submit">댓글쓰기</button>
+    <br><br><br>
 </form>
 	
 {% for c in comments %}
