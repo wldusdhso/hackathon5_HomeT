@@ -1,9 +1,12 @@
 {% extends 'base.html' %} {% block content %} {% load post_extras %}
-<p><a href="{% url 'videopage:createPart' %}" class="btn btn-default" >New Post</a></p>
-     
-{% for post in posts %}
+
+
+<p><a href="{% url 'videopage:createPart' %}" class="btn btn-info" >NEW POST</a></p>
+
+{{ hashtag.content }} {% for post in posts %}
+<div class="card">
+  <div class="card-block">
 <article class="post">
-  <a href="{% url 'videopage:partHomeDetail' post.id %}">핫영상</a>
   <h1>
     <iframe
       width="560"
@@ -15,7 +18,11 @@
       allowfullscreen
     ></iframe>
   </h1>
-  <h4>{{ post|add_link|safe|linebreaksbr }}</h4>
+  <a href="{% url 'videopage:partHomeDetail' post.id %}">자세히 보기</a>
+  <br />
+  {{ post|add_link|safe|linebreaksbr }}
   <hr />
 </article>
+</div>
+</div>
 {% endfor %} {% endblock %}

@@ -1,5 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
+<div class="card">
+  <div class="card-block">
 <h1>
   <iframe
     width="560"
@@ -11,17 +13,18 @@
     allowfullscreen
   ></iframe>
 </h1>
-
 <div class="commentbox">
-  <h2>리뷰</h2>
   {% for review in reviews %}
   <div class="eachcomment">
-    <h5>{{ review.reviews_textfield }}</h5>
+    <h4>{{ review.reviews_textfield }}</h4>
   </div>
 
   <a href="{% url 'videopage:reviewsDelete' post.id %}">
     <button>삭제하기</button>
   </a>
+  
+</div>
+</div>
   {% endfor %}
 </div>
 
