@@ -4,34 +4,46 @@
 
 <form action ="{% url 'routinepage:postcreate' %}"method ="post">
     {% csrf_token %}
-    <label>제목</label>
-    <br>
-    <input type="text" name="title" id="title">
-    <br><br>
+    <p align="center">
+        <label>제목</label>
+        <br>
+        <input type="text" name="title" id="title">
+        <br><br>
+    </p>
 
-    <label>링크1</label>
-    <br>
-    <input type="text" name="url1" id="url1">
-    <br><br>
-
-
-    <label>부위1</label>
-    <br>
-    <input type="text" name="part1" id="part1">
-    <br><br>
-
-    <label>링크2</label>
-    <br>
-    <input type="text" name="url2" id="url2">
-    <br><br>
+    <p align="center">
+        <label>링크1</label>
+        <br>
+        <input type="text" name="url1" id="url1">
+        <br><br>
+    </p>
 
 
-    <label>부위2</label>
-    <br>
-    <input type="text" name="part2" id="part2">
-    <br><br>
+    <p align="center">
+        <label>부위1</label>
+        <br>
+        <input type="text" name="part1" id="part1">
+        <br><br>
+    </p>
 
-    <button type="submit">글쓰기</button>
+    <p align="center">
+        <label>링크2</label>
+        <br>
+        <input type="text" name="url2" id="url2">
+        <br><br>
+    </p>
+
+    <p align="center">
+        <label>부위2</label>
+        <br>
+        <input type="text" name="part2" id="part2">
+        <br><br>    
+    </p>
+
+    <p align="center">
+        <button type="submit">글쓰기</button>
+    </p>
+    <br><br><br>
 </form>
 
 {% endblock %}

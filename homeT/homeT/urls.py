@@ -23,8 +23,8 @@ import routinepage.urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(mainpage.urls)),
-    path('videopage/', include(videopage.urls)),
-    path('routinepage/', include(routinepage.urls)),
-    path('account/', include(account.urls)),
+    path('', include(mainpage.urls), name="main"),
+    path('videopage/', include(videopage.urls), name="video"),
+    path('routinepage/', include(routinepage.urls), name="routine"),
+    path('account/', include(account.urls), name="account"),
 ]
