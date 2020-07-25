@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect, get_object_or_404,HttpResponse
 from .models import Post, Reviews, Hashtag
 from django import template
+from django.contrib.auth.models import User
 import json
 
 # Create your views here.
@@ -9,7 +10,7 @@ def hashtaging(request, id):
     hashtag = get_object_or_404(Hashtag, pk=id)
     id = hashtag.id
     posts = Post.objects.filter(hashtags=hashtag)
-    return render(request, "partHome.html", {"posts":posts})
+    return render(request, "partHome.html", {"posts":posts, "hashtag":hashtag})
 
 def partHome(request):
     posts = Post.objects.all
