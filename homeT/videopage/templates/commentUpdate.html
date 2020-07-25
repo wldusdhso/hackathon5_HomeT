@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %}
+
+<form action="{% url 'videopage:updatecomment' comment.id %}" method="POST">
+  {% csrf_token %}
+  <p>
+    내용 :
+    <input
+      type="text"
+      name="textfield"
+      value="{{ comment.comment_textfield }}"
+    />
+  </p>
+  <input type="submit" value="댓글 저장" />
+</form>
+
+{% endblock %}

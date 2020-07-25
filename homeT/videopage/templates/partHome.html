@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content %} {% load post_extras %}
+<a href="{% url 'videopage:createPart' %}">
+  <button class="button-post">글쓰러가기</button>
+</a>
+{% for post in posts %}
+<article class="post">
+  <a href="{% url 'videopage:partHomeDetail' post.id %}">핫영상</a>
+  <h1>
+    <iframe
+      width="560"
+      ,
+      height="315"
+      src="{{post.url}}"
+      frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gryoscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </h1>
+  {{ post|add_link|safe|linebreaksbr }}
+  <hr />
+</article>
+{% endfor %} {% endblock %}
