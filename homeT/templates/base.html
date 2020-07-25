@@ -27,16 +27,19 @@
           <div class="text-center">
             <h1>HomeT</h1>
             <p>hackathon_team5</p>
-            <p style="vertical-align: middle; display: inline-block; position: relative;">
-                <a class="nav-link" href="/" >home</a>
-                <a class="nav-link" href="routinepage/">루틴</a>
-                <a class="nav-link" href="videopage/">영상</a>
-                {% if user.is_authenticated %}
-                    <a class="nav-link" href="{% url 'account:signout'%}">logout</a>
-                {% else %}
-                    <a class="nav-link" href="{% url 'account:signin'%}">login</a>
-                {% endif %}
+            <p><br>
+                <h3>
+                  <a class="nav-link" style = "vertical-align: middle; display: inline-block; position: relative; font-size: 30px;" href="/">home</a>
+                  <a class="nav-link" style = "vertical-align: middle; display: inline-block; position: relative; font-size: 30px;" href="/routinepage/">routine</a>
+                  <a class="nav-link" style = "vertical-align: middle; display: inline-block; position: relative; font-size: 30px;" href="/videopage/">video</a>
+                  {% if user.is_authenticated %}
+                        <a class="nav-link" style = "vertical-align: middle; display: inline-block; position: relative; font-size: 30px;" href="{% url 'account:signout'%}">logout</a>
+                  {% else %}
+                      <a class="nav-link" style = "vertical-align: middle; display: inline-block; position: relative; font-size: 30px;" href="{% url 'account:signin'%}">login</a>
+                  {% endif %}
+                </h3>
             </p>
+
           </div>
         </header>
     {% block content %}

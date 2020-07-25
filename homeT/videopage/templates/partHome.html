@@ -1,7 +1,6 @@
 {% extends 'base.html' %} {% block content %} {% load post_extras %}
-<a href="{% url 'videopage:createPart' %}">
-  <button class="button-post">글쓰러가기</button>
-</a>
+<p><a href="{% url 'videopage:createPart' %}" class="btn btn-default" >New Post</a></p>
+     
 {% for post in posts %}
 <article class="post">
   <a href="{% url 'videopage:partHomeDetail' post.id %}">핫영상</a>
@@ -16,7 +15,7 @@
       allowfullscreen
     ></iframe>
   </h1>
-  {{ post|add_link|safe|linebreaksbr }}
+  <h4>{{ post|add_link|safe|linebreaksbr }}</h4>
   <hr />
 </article>
 {% endfor %} {% endblock %}
