@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1 align="center">제목 : {{onepost.title}}</h1>
+<h1 align="center">{{onepost.title}}</h1>
 <br>
 <!-- <div id="player"></div>
 <script>
@@ -26,7 +26,7 @@
   allowfullscreen>
   </iframe>
 </p>
-<p align="center">부위1: {{onepost.part1}}</p>
+<h4 align="center">부위1: {{onepost.part1}}</h4>
 <br><br>
 <!-- <div id="player2"></div>
 <script>
@@ -50,33 +50,45 @@
   allowfullscreen>
   </iframe> 
 </p>
-<p align="center">부위2: {{onepost.part2}}</p>
+<h4 align="center">부위2: {{onepost.part2}}</h4>
 <br><br>
 
 <p align="center">
-  <a href="{% url 'routinepage:home' %}" style="color: white;"> 홈으로</a>
-  <a href="{% url 'routinepage:postedit' onepost.id%}" style="color: white;"> 수정하기</a>
-  <a href="{% url 'routinepage:postdelete' onepost.id%}" style="color: white;"> 삭제하기</a>
+  <a href="{% url 'routinepage:home' %}" class="btn btn-info" style="color: white;"> 홈으로</a>
+  <a href="{% url 'routinepage:postedit' onepost.id%}" class="btn btn-info" style="color: white;"> 수정하기</a>
+  <a href="{% url 'routinepage:postdelete' onepost.id%}" class="btn btn-info" style="color: white;"> 삭제하기</a>
 </p>
 <br><br>
 
-<form align="center" action="{%url 'routinepage:commentcreate' onepost.id %}" method ="POST">
+<div class="card">
+  <div class="card-block">
+      <h2 align="center">COMMENT</h2>
+
+<form align="center" class="reveal-content" action="{%url 'routinepage:commentcreate' onepost.id %}" method ="POST">
     {% csrf_token %}
-    <div>
-        <label for="comment_content" style="font-size: 30px;">댓글</label><br><br>
-        <input type="text" name="comment_content" id="comment_content">
-        &nbsp;&nbsp;&nbsp;
-        <button type="submit">댓글쓰기</button>
-    </div>
-    <br><br><br>
+      <div class="form-group">
+        <input class="form-control" name="comment_content" id="comment_content" type="text" value="" placeholder="comment">
+      </div>
+      <div class="form-group">
+        <button type="submit" class=" btn btn-primary">SUBMIT</button>
+      </div>
 </form>
-	
+</div>
+</div>
+  
 {% for c in comments %}
+
+<div class="card">
+  <div class="card-block">
+
 <div>
-  <p>{{ c.title }}</p>
+  <h5>{{ c.title }}</h5>
   <p>{{ c.created_at }}</p>
   <a href="{%url 'routinepage:commentdelete' onepost.id c.id %}">삭제</a>
 </div>
-{%endfor%}
 
+</div>
+</div>
+
+{%endfor%}
 {% endblock %}
