@@ -4,22 +4,23 @@
 
 <h2>회원가입 페이지</h2>
 
-
-<form method="POST" action="{% url 'account:signup' %}">
-    {% csrf_token %}
-    Username:
-    <br>
-    <input name="username" type="text" value="">
-    <br>
-    Password:
-    <br>
-    <input name="password1" type="password" value="">
-    <br>
-    Comfirm Password:
-    <br>
-    <input name="password2" type="password" value="">
-    <br><br>
-    <input class="btn btn-primary" type="submit" value="sign up">
-</form>
+<div class="card">
+    <div class="card-block">
+        <h2>SIGN UP</h2>
+        <form method="POST" action="{% url 'account:signup' %}" class="reveal-content">
+            {% csrf_token %}
+            <div class="form-group">
+                <input class="form-control" name="username" type="text" value="">
+            <div>
+            Password:
+            <br>
+            <input name="password1" type="password" value="">
+            <br>
+            Comfirm Password:
+            <br>
+            <input name="password2" type="password" value="">
+            <br><br>
+            <input class="btn btn-primary" type="submit" value="sign up">
+        </form>
 
 {% endblock %}
