@@ -2,26 +2,20 @@
 
 {% block content %}
 
-<h1>포스트들</h1>
-<a href="{% url 'routinepage:new' %}">글쓰기</a>
+<div class="container">
+    <h1>POSTS</h1><br><br>
+    <a href="{% url 'routinepage:new' %}" style="color:white;">register</a><br><br>
 
-{% for routine in page_posts %}
-    <h1><a href="{% url 'routinepage:detail' routine.id %}">제목 : {{routine.title}}</a></h1>
-{%endfor%}
-
-<ul>
-    {%if page_posts.has_previous%}
-        <li><a href="?page={{page_posts.previous_page_number}}">이전</a>
-        </li>
-    {%endif%}
-    {%for i in page_posts.paginator.page_range%}
-        <li><a href="?page={{i}}">{{i}}</a></li>
+    {% for routine in page_posts %}
+        <div class="card">
+            <div class="card-block">
+                <iframe display="inline" src="{{ routine.url1 }}" frameborder="0"></iframe>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a style="font-size: 80px; text-decoration: none;" href="{% url 'routinepage:detail' routine.id %}"> #routine {{routine.title}}</a>
+            </div>
+        </div>
     {%endfor%}
-    
-    {%if page_posts.has_next%}
-        <li><a href="?page={{page_posts.next_page_number}}">다음</a>
-        </li>
-    {%endif%}
-</ul>
+    <br><br>
+</div>
 
 {% endblock %}
