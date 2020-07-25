@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 # Create your models here.
 
@@ -15,6 +16,7 @@ class Routine(models.Model):
 
     url2 = models.CharField(max_length=500)
     part2 = models.CharField(max_length=2, choices=WORKOUT_PART, default='상체')
+    writer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title

@@ -3,9 +3,9 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="card "style="margin: 0 auto">
+        <div class="card " style="margin: 0 auto">
             <div class="card-block " >
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="width: 100%;">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" >
             
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
@@ -68,21 +68,11 @@
         <div class="card-block">
         <h1>recommended routine</h1>
         <table class="table">
+            {% for routine in hotRoutine %}
             <tr>
-            <td>Mark</td>
-            <td>베스트상체루틴</td>
-            <td>98742</td>
+                <td>{{routine.title}}</td>
             </tr>
-            <tr>
-            <td>Jacob</td>
-            <td>전신불태우기</td>
-            <td>9487</td>
-            </tr>
-            <tr>
-            <td>Larry</td>
-            <td>근육부시기</td>
-            <td>2345</td>
-            </tr>
+            {% endfor %}
         </tbody>
         </table>
         </div>

@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block content %}
+
+<form
+  action="{% url 'videopage:createPart' %}"
+  method="POST"
+  enctype="multipart/form-data"
+>
+  {% csrf_token %} url :
+  <input type="text" name="url" />
+
+  내용 :
+  <textarea name="textfield" cols="30" rows="10"></textarea>
+
+  해시태그 :
+  <input type="text" name="hashtagBox" />
+  <input type="submit" value="글 저장" />
+</form>
+{% endblock %}

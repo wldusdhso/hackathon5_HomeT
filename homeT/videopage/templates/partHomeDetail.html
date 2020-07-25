@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>
+  <iframe
+    width="560"
+    ,
+    height="315"
+    src="{{post.url}}"
+    frameborder="0"
+    allow="accelerometer; autoplay; encrypted-media; gryoscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+</h1>
+
+<div class="commentbox">
+  <h2>리뷰</h2>
+  {% for review in reviews %}
+  <div class="eachcomment">
+    <h5>{{ review.reviews_textfield }}</h5>
+  </div>
+
+  <a href="{% url 'videopage:reviewsDelete' post.id %}">
+    <button>삭제하기</button>
+  </a>
+  {% endfor %}
+</div>
+
+{% endblock %}
